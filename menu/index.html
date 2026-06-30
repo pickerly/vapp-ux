@@ -8,118 +8,117 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f0f2f4;min-height:100vh}
-.wrap{max-width:1400px;margin:0 auto;padding:0 48px}
 
 /* HEADER */
-.hd{background:#fff;border-bottom:1px solid #eaebeb}
-.hd .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding-top:14px;padding-bottom:14px}
-.logo{font-size:26px;font-weight:700;color:#e31e24;letter-spacing:-1px;line-height:1;white-space:nowrap}
+.hd{background:#fff;border-bottom:1px solid #dde0e3}
+.hd-inner{max-width:1400px;margin:0 auto;padding:16px 48px;display:flex;align-items:center;position:relative;min-height:68px}
+.logo{font-size:28px;font-weight:700;color:#e31e24;letter-spacing:-1px;line-height:1;white-space:nowrap;flex:0 0 auto;z-index:1}
 
-/* Search — centered column */
-.search{width:480px;position:relative}
-.search input{width:100%;padding:10px 50px 10px 16px;border:1.5px solid #d0d8f0;border-radius:6px;font-family:'Exo 2',sans-serif;font-size:15px;color:#2b3033;background:#f8f9fc;outline:none;transition:border .15s,box-shadow .15s}
-.search input:focus{border-color:#1652b4;background:#fff;box-shadow:0 0 0 3px rgba(22,82,180,.08)}
-.search input::placeholder{color:rgba(43,48,51,.35)}
-.sbtn{position:absolute;right:1px;top:1px;bottom:1px;width:44px;background:#1652b4;border:none;border-radius:0 5px 5px 0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+/* Search — absolutely centered */
+.search{position:absolute;left:50%;transform:translateX(-50%);width:500px}
+.search input{width:100%;padding:11px 52px 11px 18px;border:1.5px solid #c8d0e0;border-radius:7px;font-family:'Exo 2',sans-serif;font-size:15px;color:#1e2428;background:#f4f6fa;outline:none;transition:border .15s,background .15s,box-shadow .15s}
+.search input:focus{border-color:#1652b4;background:#fff;box-shadow:0 0 0 3px rgba(22,82,180,.09)}
+.search input::placeholder{color:#9aa3ae}
+.sbtn{position:absolute;right:1px;top:1px;bottom:1px;width:46px;background:#1652b4;border:none;border-radius:0 6px 6px 0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .sbtn:hover{background:#124290}
 .sbtn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
 
 /* Header right */
-.hd-r{display:flex;align-items:center;gap:16px;justify-content:flex-end}
-.contact-block{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
-.contact-row{display:flex;align-items:center;gap:6px;text-decoration:none;color:#2b3033;transition:color .12s}
+.hd-r{margin-left:auto;display:flex;align-items:center;gap:20px;flex:0 0 auto;z-index:1}
+.contact-block{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.contact-row{display:flex;align-items:center;gap:7px;text-decoration:none;color:#2b3033;transition:color .12s}
 .contact-row:hover{color:#1652b4}
-.contact-icon{width:15px;height:15px;flex-shrink:0;opacity:.55}
-.contact-phone{font-size:14px;font-weight:600}
-.contact-email{font-size:12px;color:#1652b4;font-weight:500}
-.contact-more{font-size:11px;color:rgba(43,48,51,.4);text-decoration:none;margin-top:1px;text-align:right;display:block;transition:color .12s}
+.contact-icon{width:14px;height:14px;flex-shrink:0;opacity:.6}
+.contact-phone{font-size:15px;font-weight:700;color:#1e2428}
+.contact-email{font-size:13px;color:#1652b4;font-weight:600}
+.contact-more{font-size:11px;color:#8a9098;text-decoration:none;margin-top:2px;text-align:right;display:block;transition:color .12s}
 .contact-more:hover{color:#1652b4}
 
 /* Icon buttons */
 .hd-icons{display:flex;align-items:center;gap:8px}
-.ico{width:38px;height:38px;background:#f6f7f7;border:1px solid #eaebeb;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .1s,border-color .1s;position:relative;flex-shrink:0}
-.ico:hover{background:#eef2fb;border-color:#c8d5f0}
-.ico svg{width:19px;height:19px;fill:none;stroke:#2b3033;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:40px;height:40px;background:#f0f2f5;border:1px solid #dde0e3;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .1s,border-color .1s;position:relative;flex-shrink:0}
+.ico:hover{background:#e8eef8;border-color:#b8c8e8}
+.ico svg{width:20px;height:20px;fill:none;stroke:#3a4450;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* Login dropdown */
 .login-wrap{position:relative}
-.login-drop{display:none;position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid #eaebeb;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.1);padding:8px;min-width:160px;z-index:300}
+.login-drop{display:none;position:absolute;top:calc(100% + 10px);right:0;background:#fff;border:1px solid #dde0e3;border-radius:9px;box-shadow:0 10px 28px rgba(0,0,0,.12);padding:8px;min-width:165px;z-index:300}
 .login-drop.open{display:block}
-.login-drop a{display:block;padding:9px 14px;font-size:14px;font-weight:600;color:#2b3033;text-decoration:none;border-radius:6px;transition:background .12s,color .12s}
-.login-drop a:hover{background:#f4f6fb;color:#1652b4}
-.login-drop .sep{height:1px;background:#f0f0f0;margin:4px 0}
+.login-drop a{display:block;padding:10px 15px;font-size:14px;font-weight:600;color:#2b3033;text-decoration:none;border-radius:6px;transition:background .12s,color .12s}
+.login-drop a:hover{background:#f0f4fb;color:#1652b4}
+.login-drop .sep{height:1px;background:#eaecef;margin:4px 0}
 
 /* NAV */
-.nav{background:#fff;border-bottom:1px solid #eaebeb;position:relative}
+.nav{background:#fff;border-bottom:1px solid #dde0e3;position:relative}
 .navrow{display:flex;align-items:stretch;padding:0 48px;max-width:1400px;margin:0 auto}
-.nb{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:12px 16px;cursor:pointer;border-bottom:2px solid transparent;color:rgba(43,48,51,.65);user-select:none;transition:color .15s,border-color .15s;display:flex;align-items:center}
+.nb{font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 22px;cursor:pointer;border-bottom:2.5px solid transparent;color:#5a6472;user-select:none;transition:color .15s,border-color .15s;display:flex;align-items:center;white-space:nowrap}
 .nb:hover{color:#1652b4}
 .nb.on{color:#1652b4;border-bottom-color:#1652b4}
 
 /* MEGA MENU */
-.mm{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid #eaebeb;box-shadow:0 12px 32px rgba(0,0,0,.08);z-index:100;padding:24px 0 28px}
+.mm{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid #dde0e3;box-shadow:0 14px 36px rgba(0,0,0,.09);z-index:100;padding:26px 0 30px}
 .mm.open{display:block}
 .mm-inner{max-width:1400px;margin:0 auto;padding:0 48px}
 .cols{display:flex;align-items:flex-start}
-.vd{width:1px;background:#eaebeb;align-self:stretch;flex-shrink:0;margin:0 14px}
+.vd{width:1px;background:#e0e3e7;align-self:stretch;flex-shrink:0;margin:0 16px}
 .col{flex:1}
-.ct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(43,48,51,.38);margin-bottom:7px;padding-bottom:7px;border-bottom:1px solid #f0f0f0;margin-top:18px;white-space:nowrap}
+.ct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8a9098;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #eceef0;margin-top:20px;white-space:nowrap}
 .ct:first-child{margin-top:0}
 .ct-sm{letter-spacing:1.3px}
-.cl{display:flex;align-items:center;font-size:15px;padding:5px 9px;color:rgba(43,48,51,.85);cursor:pointer;border-radius:5px;line-height:1.4;transition:background .12s,color .12s;font-weight:400}
-.cl:hover{background:#f4f6fb;color:#1652b4}
-.fr-elektro{display:block;padding:8px 12px;background:#e8eef8;border-radius:6px;font-size:15px;font-weight:600;color:#1652b4;cursor:pointer;transition:background .12s}
-.fr-elektro:hover{background:#d4dff4}
+.cl{display:flex;align-items:center;font-size:15px;padding:6px 10px;color:#3a4450;cursor:pointer;border-radius:5px;line-height:1.4;transition:background .12s,color .12s;font-weight:400}
+.cl:hover{background:#f0f4fb;color:#1652b4}
+.fr-elektro{display:block;padding:9px 13px;background:#e4ecf8;border-radius:7px;font-size:15px;font-weight:600;color:#1652b4;cursor:pointer;transition:background .12s}
+.fr-elektro:hover{background:#d0def4}
 .brand-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.chip{flex:0 0 calc(50% - 3px);font-size:14px;font-weight:600;color:rgba(43,48,51,.75);cursor:pointer;padding:6px 0;border-radius:5px;text-align:center;transition:background .12s,color .12s}
-.chip:hover{background:#f4f6fb;color:#1652b4}
+.chip{flex:0 0 calc(50% - 3px);font-size:14px;font-weight:600;color:#4a5260;cursor:pointer;padding:7px 0;border-radius:6px;text-align:center;transition:background .12s,color .12s}
+.chip:hover{background:#f0f4fb;color:#1652b4}
 .chip.red{color:#e31e24}
 .chip.red:hover{background:#fdf0f0;color:#c01820}
-.vyprodej-cta{display:block;margin-top:10px;width:100%;padding:8px 0;background:#e8eef8;color:#1652b4;font-size:14px;font-weight:700;text-align:center;border-radius:5px;cursor:pointer;letter-spacing:.2px;transition:background .12s}
-.vyprodej-cta:hover{background:#d4dff4}
-.mm-footer{margin-top:18px;padding-top:12px;border-top:1px solid #f0f0f0}
-.mm-all{font-size:13px;font-weight:600;color:#1652b4;cursor:pointer;opacity:.8;transition:opacity .12s}
+.vyprodej-cta{display:block;margin-top:10px;width:100%;padding:9px 0;background:#e4ecf8;color:#1652b4;font-size:14px;font-weight:700;text-align:center;border-radius:6px;cursor:pointer;letter-spacing:.2px;transition:background .12s}
+.vyprodej-cta:hover{background:#d0def4}
+.mm-footer{margin-top:20px;padding-top:13px;border-top:1px solid #eceef0}
+.mm-all{font-size:13px;font-weight:600;color:#1652b4;cursor:pointer;opacity:.85;transition:opacity .12s}
 .mm-all:hover{opacity:1}
 
 /* MOBILE */
 @media(max-width:768px){
   .desktop-only{display:none}
-  .mob-header{background:#fff;border-bottom:1px solid #eaebeb;display:flex;align-items:center;padding:12px 16px;gap:12px}
+  .mob-header{background:#fff;border-bottom:1px solid #dde0e3;display:flex;align-items:center;padding:12px 16px;gap:12px}
   .mob-logo{font-size:22px;font-weight:700;color:#e31e24;letter-spacing:-1px;flex:1}
   .mob-icons{display:flex;gap:8px;align-items:center}
-  .mob-icon{width:38px;height:38px;background:#f6f7f7;border:1px solid #eaebeb;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-  .mob-icon svg{width:19px;height:19px;fill:none;stroke:#2b3033;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .mob-search{background:#fff;padding:10px 16px 12px;border-bottom:1px solid #eaebeb}
-  .mob-search input{width:100%;padding:10px 16px;border:1.5px solid #d0d8f0;border-radius:6px;font-family:'Exo 2',sans-serif;font-size:15px;background:#f8f9fc;outline:none}
+  .mob-icon{width:40px;height:40px;background:#f0f2f5;border:1px solid #dde0e3;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .mob-icon svg{width:20px;height:20px;fill:none;stroke:#3a4450;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .mob-search{background:#fff;padding:10px 16px 13px;border-bottom:1px solid #dde0e3}
+  .mob-search input{width:100%;padding:11px 16px;border:1.5px solid #c8d0e0;border-radius:7px;font-family:'Exo 2',sans-serif;font-size:15px;background:#f4f6fa;outline:none;color:#1e2428}
   .drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:200}
   .drawer-overlay.open{display:block}
   .drawer{position:fixed;top:0;left:-100%;width:85%;max-width:320px;height:100%;background:#fff;z-index:201;transition:left .25s ease;overflow-y:auto}
   .drawer.open{left:0}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid #eaebeb}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid #dde0e3}
   .drawer-logo{font-size:22px;font-weight:700;color:#e31e24;letter-spacing:-1px}
-  .drawer-close{width:32px;height:32px;background:#f6f7f7;border:none;border-radius:6px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-  .acc-item{border-bottom:1px solid #eaebeb}
-  .acc-trigger{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;font-size:13px;font-weight:700;color:rgba(43,48,51,.85);cursor:pointer;text-transform:uppercase;letter-spacing:.3px}
+  .drawer-close{width:32px;height:32px;background:#f0f2f5;border:none;border-radius:6px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#4a5260}
+  .acc-item{border-bottom:1px solid #dde0e3}
+  .acc-trigger{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;font-size:13px;font-weight:700;color:#3a4450;cursor:pointer;text-transform:uppercase;letter-spacing:.4px}
   .acc-trigger.open{color:#1652b4}
-  .acc-arrow{font-size:11px;transition:transform .2s;color:rgba(43,48,51,.4)}
+  .acc-arrow{font-size:11px;transition:transform .2s;color:#8a9098}
   .acc-trigger.open .acc-arrow{transform:rotate(180deg);color:#1652b4}
-  .acc-body{display:none;padding:0 16px 12px}
+  .acc-body{display:none;padding:0 16px 14px}
   .acc-body.open{display:block}
-  .mob-ct{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(43,48,51,.38);margin:12px 0 6px;padding-bottom:5px;border-bottom:1px solid #f0f0f0}
-  .mob-ct:first-child{margin-top:4px}
-  .mob-link{display:block;font-size:15px;padding:7px 4px;color:rgba(43,48,51,.85);cursor:pointer;border-radius:5px;transition:background .12s,color .12s}
-  .mob-link:hover{background:#f4f6fb;color:#1652b4}
-  .mob-elektro{display:block;padding:8px 12px;background:#e8eef8;border-radius:6px;font-size:15px;font-weight:600;color:#1652b4;margin-bottom:4px}
+  .mob-ct{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8a9098;margin:14px 0 7px;padding-bottom:6px;border-bottom:1px solid #eceef0}
+  .mob-ct:first-child{margin-top:6px}
+  .mob-link{display:block;font-size:15px;padding:7px 4px;color:#3a4450;cursor:pointer;border-radius:5px;transition:background .12s,color .12s}
+  .mob-link:hover{background:#f0f4fb;color:#1652b4}
+  .mob-elektro{display:block;padding:9px 12px;background:#e4ecf8;border-radius:7px;font-size:15px;font-weight:600;color:#1652b4;margin-bottom:4px}
   .mob-brands{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
-  .mob-chip{flex:0 0 calc(50% - 3px);font-size:14px;font-weight:600;color:rgba(43,48,51,.75);padding:6px 0;border-radius:5px;text-align:center;background:#f6f7f7;cursor:pointer}
+  .mob-chip{flex:0 0 calc(50% - 3px);font-size:14px;font-weight:600;color:#4a5260;padding:7px 0;border-radius:6px;text-align:center;background:#f4f6fa;cursor:pointer}
   .mob-chip.red{color:#e31e24}
-  .mob-vyprodej{display:block;width:100%;padding:8px;background:#e8eef8;color:#1652b4;font-size:14px;font-weight:700;text-align:center;border-radius:5px;margin-top:8px}
-  .mob-simple{display:block;padding:14px 16px;font-size:15px;font-weight:600;color:rgba(43,48,51,.75);border-bottom:1px solid #eaebeb;cursor:pointer}
+  .mob-vyprodej{display:block;width:100%;padding:9px;background:#e4ecf8;color:#1652b4;font-size:14px;font-weight:700;text-align:center;border-radius:6px;margin-top:8px}
+  .mob-simple{display:block;padding:15px 16px;font-size:15px;font-weight:600;color:#3a4450;border-bottom:1px solid #dde0e3;cursor:pointer}
   .mob-simple:hover{color:#1652b4}
-  .mob-contact{padding:16px;border-top:1px solid #eaebeb;margin-top:8px;display:flex;flex-direction:column;gap:8px}
-  .mob-contact a{display:flex;align-items:center;gap:8px;font-size:14px;color:#2b3033;text-decoration:none;font-weight:500}
+  .mob-contact{padding:16px;border-top:1px solid #dde0e3;margin-top:8px;display:flex;flex-direction:column;gap:10px}
+  .mob-contact a{display:flex;align-items:center;gap:9px;font-size:14px;color:#2b3033;text-decoration:none;font-weight:600}
   .mob-contact a svg{width:16px;height:16px;fill:none;stroke:#1652b4;stroke-width:1.8;stroke-linecap:round;flex-shrink:0}
-  .mob-contact .mob-more{font-size:12px;color:#1652b4;margin-top:4px}
+  .mob-contact .mob-more{font-size:12px;color:#1652b4;margin-top:2px}
 }
 @media(min-width:769px){
   .mobile-only{display:none}
@@ -131,12 +130,12 @@ body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f
 <!-- DESKTOP -->
 <div class="desktop-only">
   <div class="hd">
-    <div class="wrap">
+    <div class="hd-inner">
 
-      <!-- Logo -->
+      <!-- Logo vlevo -->
       <div class="logo">VAPP<sup style="font-size:11px;font-weight:400">&#174;</sup></div>
 
-      <!-- Search — centered -->
+      <!-- Search — absolutně vycentrovaný -->
       <div class="search">
         <input type="text" placeholder="Hledat produkt, d&#237;l nebo zna&#269;ku&#8230;" onfocus="closeAll()">
         <button class="sbtn" aria-label="Hledat">
@@ -144,7 +143,7 @@ body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f
         </button>
       </div>
 
-      <!-- Right: contact + icons -->
+      <!-- Pravá strana: kontakt + ikony -->
       <div class="hd-r">
         <div class="contact-block">
           <a class="contact-row" href="tel:603924555">
@@ -152,14 +151,14 @@ body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f
             <span class="contact-phone">603 924 555</span>
           </a>
           <a class="contact-row contact-email" href="mailto:info@vapp.cz">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="#1652b4" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
             <span>info@vapp.cz</span>
           </a>
           <a class="contact-more" href="https://www.vapp.cz/kontakty/">V&#353;echny kontakty &#8594;</a>
         </div>
 
         <div class="hd-icons">
-          <!-- Login / Register -->
+          <!-- Login / Registrace -->
           <div class="login-wrap">
             <div class="ico" onclick="toggleLogin(event)" title="P&#345;ihl&#225;&#353;en&#237; / Registrace">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -170,7 +169,7 @@ body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f
               <a href="https://www.vapp.cz/registrace/nova-registrace/">Registrace</a>
             </div>
           </div>
-          <!-- Cart -->
+          <!-- Košík -->
           <div class="ico" title="Kos&#237;k">
             <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
           </div>
@@ -190,25 +189,25 @@ body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f
       <div class="nb" onclick="closeAll()">Kontakt</div>
     </div>
 
-    <!-- PRIVESY -->
+    <!-- PŘÍVĚSY -->
     <div class="mm open" id="mm-p">
       <div class="mm-inner">
         <div class="cols">
-          <div class="col" style="flex:0 0 160px">
+          <div class="col" style="flex:0 0 165px">
             <div class="ct">Valn&#237;ky</div>
             <div class="cl">Jednoos&#233; valn&#237;ky</div>
             <div class="cl">Dvouos&#233; valn&#237;ky</div>
             <div class="cl">T&#345;&#237;os&#233; valn&#237;ky</div>
           </div>
           <div class="vd"></div>
-          <div class="col" style="flex:0 0 185px">
+          <div class="col" style="flex:0 0 190px">
             <div class="ct">P&#345;&#237;v&#283;sy</div>
             <div class="cl">Sklopn&#233; p&#345;&#237;v&#283;sy</div>
             <div class="cl">Sk&#345;&#237;&#328;ov&#233; p&#345;&#237;v&#283;sy</div>
             <div class="cl">Chladirensk&#233; p&#345;&#237;v&#283;sy</div>
           </div>
           <div class="vd"></div>
-          <div class="col" style="flex:0 0 230px">
+          <div class="col" style="flex:0 0 235px">
             <div class="ct">P&#345;epravn&#237;ky</div>
             <div class="cl">P&#345;epravn&#237;ky automobil&#367;</div>
             <div class="cl">P&#345;epravn&#237;ky motocykl&#367;</div>
@@ -217,7 +216,7 @@ body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f
             <div class="cl">P&#345;epravn&#237;ky zv&#237;&#345;at</div>
           </div>
           <div class="vd"></div>
-          <div class="col" style="flex:0 0 160px">
+          <div class="col" style="flex:0 0 165px">
             <div class="ct">Zna&#269;ky</div>
             <div class="brand-chips">
               <div class="chip">Agados</div>
@@ -232,7 +231,7 @@ body{font-family:'Exo 2',Helvetica,Arial,sans-serif;font-size:16px;background:#f
       </div>
     </div>
 
-    <!-- NAHRADNI DILY -->
+    <!-- NÁHRADNÍ DÍLY -->
     <div class="mm" id="mm-n">
       <div class="mm-inner">
         <div class="cols">
@@ -392,24 +391,30 @@ function closeAll(){
     if(mm) mm.classList.remove('open');
     if(nb) nb.classList.remove('on');
   });
-  document.getElementById('login-drop').classList.remove('open');
+  var drop=document.getElementById('login-drop');
+  if(drop) drop.classList.remove('open');
 }
 function tog(id){
   var other=id==='p'?'n':'p';
   var isOpen=document.getElementById('mm-'+id).classList.contains('open');
   document.getElementById('mm-'+other).classList.remove('open');
-  document.getElementById('b'+other) && document.getElementById('b'+other).classList.remove('on');
+  var nb2=document.getElementById('b'+other);
+  if(nb2) nb2.classList.remove('on');
   document.getElementById('mm-'+id).classList.toggle('open',!isOpen);
   document.getElementById('b'+id).classList.toggle('on',!isOpen);
-  document.getElementById('login-drop').classList.remove('open');
+  var drop=document.getElementById('login-drop');
+  if(drop) drop.classList.remove('open');
 }
 function toggleLogin(e){
   e.stopPropagation();
+  var drop=document.getElementById('login-drop');
+  var wasOpen=drop.classList.contains('open');
   closeAll();
-  document.getElementById('login-drop').classList.toggle('open');
+  if(!wasOpen) drop.classList.add('open');
 }
 document.addEventListener('click',function(){
-  document.getElementById('login-drop').classList.remove('open');
+  var drop=document.getElementById('login-drop');
+  if(drop) drop.classList.remove('open');
 });
 function openDrawer(){
   document.getElementById('drawer').classList.add('open');
